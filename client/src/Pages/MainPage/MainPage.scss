@@ -1,0 +1,424 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ========================= ОСНОВА ========================= */
+
+.vault {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+/* ========================= ВЕРХ ========================= */
+
+.addMenu {
+  width: 70%;
+  max-width: 900px; /* ограничение ширины */
+  margin: 0 auto;   /* 🔥 принудительный центр */
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* HEADER */
+
+.vault__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.vault__title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.vault__subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.vault__actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ========================= NOTICE ========================= */
+
+.notice {
+  padding: 10px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* ========================= ФОРМА ========================= */
+
+.panel {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  position: relative;
+}
+
+.panel__row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #999;
+}
+
+
+/* ========================= КНОПКИ ========================= */
+
+.btn {
+  border-radius: 25px;
+  border: 1px solid transparent;
+  padding: 10px 12px;
+  background: var(--btn);
+  color: var(--btnText);
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;  /* по горизонтали */
+  align-items: center; 
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: #111;
+}
+
+.btn--secondary {
+  background: #fff;
+  color: #111;
+  border-color: #ccc;
+  height: 35px;
+  width: 150px;
+}
+.btn--iconOpenClosePas {
+  background: transparent;
+  border-color: transparent;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn--iconOpenClosePas img {
+  width: 30px;
+  height: 30px;
+}
+.btn--iconEditBtn {
+  background: transparent;
+  border-color: transparent;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn--iconEditBtn img {
+  width: 13px;
+  height: 13px;
+
+}
+
+.btn--icon {
+  padding: 8px 10px;
+  background: transparent;
+  border-color: transparent;
+  color: #111;
+}
+
+.btn--iconNoEdit {
+  padding: 6px 8px;
+  background: transparent;
+  border-color: transparent;
+  color: #111;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+
+.btn--icon:hover {
+  background: var(--soft);
+}
+.btn--iconNoEdit:hover {
+  background: var(--soft);
+}
+.btn--iconEditBtn:hover {
+    background: var(--soft);
+}
+.btn--iconOpenClosePas:hover {
+    background: var(--soft);
+}
+
+/* ========================= ПОИСК ========================= */
+
+.search {
+  position: relative;
+  width: 100%;
+}
+
+.search__input {
+  width: 100%;
+  padding-right: 36px; /* место под кнопку */
+}
+
+.search__btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-51%);
+  height: 28px;
+  width: 28px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.modal__content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 280px;
+  text-align: center;
+}
+
+.modal__actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+/* ========================= КАРТОЧКИ ========================= */
+
+.grid {
+  width: 70%;
+  max-width: 900px; /* та же ширина */
+  margin: 0 auto;   /* 🔥 центр */
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.card {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 16px;
+  background: #fff;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 12px;
+  margin-top: -8px;
+}
+
+.card__title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card__footer {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #777;
+
+  display: flex;              /* обязательно */
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+/* ========================= СЕКРЕТ ========================= */
+
+.secret {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--soft);
+  
+}
+
+.secret__row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.secret__fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.secret__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.secret__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.secret__name {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+
+.secret__notes {
+  font-family: monospace;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.secret__code {
+  font-family: monospace;
+  font-size: 14px;
+  word-break: break-all;
+}
+.switchField {
+  min-height: 38px;
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+
+  cursor: pointer;
+  user-select: none;
+
+  input {
+    display: none;
+  }
+
+  &__text {
+    margin-right: 0px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  &__slider {
+    position: relative;
+
+    width: 46px;
+    height: 24px;
+
+    border-radius: 999px;
+    background: #555;
+
+    transition: background 0.2s ease;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 3px;
+      left: 3px;
+
+      width: 18px;
+      height: 18px;
+
+      border-radius: 50%;
+      background: #ffffff;
+
+      transition: transform 0.2s ease;
+    }
+  }
+
+  input:checked + &__slider {
+    background: #2563eb;
+  }
+
+  input:checked + &__slider::before {
+    transform: translateX(22px);
+  }
+}
+
+.card__badge {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.75;
+}

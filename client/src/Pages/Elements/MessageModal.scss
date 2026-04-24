@@ -1,0 +1,70 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.modal-window {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+  animation: modalShow 0.2s ease;
+
+  .modal-title {
+    margin: 0 0 12px;
+
+    font-size: 22px;
+    font-weight: 700;
+    color: #222222;
+  }
+
+  .modal-message {
+    margin: 0 0 20px;
+
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444444;
+  }
+
+  .modal-button {
+    width: 100%;
+    padding: 12px 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: black;
+    color: #ffffff;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: black;
+    }
+  }
+}
+
+@keyframes modalShow {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

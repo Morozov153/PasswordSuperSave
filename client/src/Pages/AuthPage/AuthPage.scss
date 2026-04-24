@@ -1,0 +1,132 @@
+.authCenter {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+
+  display: grid;
+  place-items: center;
+  padding: 20px;
+
+  &__card {
+    width: min(520px, 100%);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background: #fff;
+    padding: 22px;
+    height: auto;
+  }
+
+  &__head {
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.1;
+  }
+
+  &__subtitle {
+    margin-top: 8px;
+    color: var(--muted);
+  }
+
+  /* Контейнер форм */
+  &__forms {
+    position: relative;
+
+    /* login видна */
+    &.is-login {
+      .authCenter__form--login {
+        display: flex;
+      }
+    }
+
+    /* register видна */
+    &.is-register {
+      .authCenter__form--register {
+        display: flex;
+      }
+    }
+  }
+
+  /* Общие стили формы */
+  &__form {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-family: inherit;
+
+    &:focus {
+      border-color: #999;
+    }
+  }
+
+  /* Кнопки */
+  &__btn {
+    border-radius: 25px;
+    border: 1px solid transparent;
+    padding: 10px 12px;
+    background: var(--btn);
+    color: var(--btnText);
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &--secondary {
+      background: #fff;
+      color: #111;
+      border-color: #ccc;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 2px;
+  }
+
+  &__link {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 6px 0;
+    color: var(--muted);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
