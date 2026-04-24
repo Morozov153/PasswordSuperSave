@@ -1,0 +1,18 @@
+CREATE TABLE users (
+    id_user BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    login_hash TEXT NOT NULL,
+    password_hash TEXT NOT NULL,
+    master_key_hash TEXT NOT NULL
+);
+
+CREATE TABLE records (
+    id_record BIGSERIAL PRIMARY KEY,
+    id_user BIGINT NOT NULL REFERENCES users(id_user) ON DELETE CASCADE,
+    title TEXT NOT NULL,
+    login TEXT NOT NULL,
+    password TEXT NOT NULL,
+    description TEXT,
+    date_of_creation TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    need_a_master_key BOOLEAN NOT NULL DEFAULT FALSE
+);
