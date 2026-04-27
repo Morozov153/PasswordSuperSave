@@ -1,0 +1,226 @@
+.about {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ========================= ВЕРХ ========================= */
+
+.about__hero {
+  width: 70%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about__title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.about__subtitle {
+  margin: 0;
+  max-width: 720px;
+
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ========================= КАРТОЧКИ ========================= */
+
+.about__card {
+  width: 70%;
+  max-width: 900px;
+  margin: 0 auto 16px;
+  padding: 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: #fff;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.about__card h2 {
+  margin: 0 0 12px;
+
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.about__card p {
+  margin: 0 0 10px;
+
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* ========================= БЛОК БЕЗОПАСНОСТИ ========================= */
+
+.about__security {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+.about__securityItem {
+  padding: 12px;
+
+  border-radius: 10px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+}
+
+.about__securityItem p {
+  margin: 0;
+}
+
+.about__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+  padding: 6px 10px;
+
+  border-radius: 25px;
+  background: var(--btn);
+  color: var(--btnText);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* ========================= ЗАМЕТКА ========================= */
+
+.about__note {
+  margin-top: 14px !important;
+  padding: 12px;
+
+  border-radius: 10px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+
+  color: var(--text) !important;
+}
+
+/* ========================= ИНСТРУКЦИЯ ========================= */
+
+.about__steps {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.about__steps li {
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.about__steps strong {
+  display: block;
+  margin-bottom: 4px;
+
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.about__steps span {
+  display: block;
+
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ========================= РЕКОМЕНДАЦИИ ========================= */
+
+.about__card--warning {
+  border: 1px solid var(--border);
+}
+
+.about__list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.about__list li {
+  margin-bottom: 10px;
+
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ========================= КНОПКА НАЗАД, ЕСЛИ ЕСТЬ ========================= */
+
+.about__back {
+  width: 400px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ========================= АДАПТИВ ========================= */
+
+@media (max-width: 900px) {
+  .about__hero,
+  .about__card,
+  .about__back {
+    width: 90%;
+  }
+}
+
+@media (max-width: 700px) {
+  .about__hero {
+    padding: 16px;
+  }
+
+  .about__card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .about__title {
+    font-size: 24px;
+  }
+
+  .about__subtitle {
+    font-size: 15px;
+  }
+
+  .about__card h2 {
+    font-size: 18px;
+  }
+}
+.about__back {
+  width: 400px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.about__back--bottom {
+  margin-bottom: 30px;
+}

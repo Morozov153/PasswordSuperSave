@@ -1,0 +1,16 @@
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.modal-button-yes {
+  background-color: #2ecc71;
+  border-radius: 100px;
+}
+
+.modal-button-no {
+  background-color: #e74c3c;
+  border-radius: 100px;
+}

@@ -53,7 +53,7 @@ export default function AuthPage({ setIsAuth }) {
       {
         const data = await request.json();
         setIsAuth(true);
-        navigate("/mainpage",{state: {user: data.user}});
+        navigate("/secretroom",{state: {user: data.user}});
       }
     } 
     catch (err) 

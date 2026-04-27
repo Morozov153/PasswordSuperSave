@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
 export default function MasterKeyModal({
+  title,
   value,
   onChange,
   onConfirm,
@@ -24,8 +25,7 @@ export default function MasterKeyModal({
   return (
     <div className="modal">
       <form className="modal__content" onSubmit={handleSubmit}>
-        <p>Введите мастер-ключ, чтобы посмотреть данные</p>
-
+        <p>{title}</p>
         <input
           ref={inputRef}
           className="input"

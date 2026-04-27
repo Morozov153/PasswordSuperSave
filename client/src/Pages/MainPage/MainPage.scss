@@ -422,3 +422,9 @@ body {
   font-size: 12px;
   opacity: 0.75;
 }
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
