@@ -424,7 +424,7 @@ export default function MainPage({ setIsAuth })
     return Boolean(item.need_master_key || item.needMasterKey);
   }
 //-----------------------------------------------------------Функция проверки надобности мастер-ключа
-  function canUseSecret(item, action) 
+  function canUseSecret(item, action,text) 
   {
     const recordId = item.id;
 
@@ -446,7 +446,7 @@ export default function MainPage({ setIsAuth })
       return;
     }
 
-    openMasterModal(recordId, action,"Для просмотра данных нужно ввести мастер-ключ.");
+    openMasterModal(recordId, action,text);
   }
   //-----------------------------------------------------------Функции проверки вводился ли мастер-ключ ранее
 
@@ -553,16 +553,16 @@ export default function MainPage({ setIsAuth })
 
                   <div style={{ display: "flex", flexDirection: "row" }}>
                     <button style={{ marginTop: "3px" }} className="btn btn--iconEditBtn" 
-                      onClick={() => 
+                      onClick={() => canUseSecret(it, () => 
                       {
                         setEditId(recordId);
-                        editData(recordId,it.title,it.login,it.password,it.notes,needMasterKey);
-                      }}>
+                        editData(recordId,it.title,it.login,it.password,it.notes,needMasterKey)
+                      },"Для редактирования данных нужно ввести мастер-ключ.")}>
 
                       <img src={editIcon} alt="edit" />
                     </button>
 
-                    <button className="btn btn--icon" onClick={() => setConfirmId(recordId)}>
+                    <button className="btn btn--icon" onClick={() => canUseSecret(it, () => setConfirmId(recordId),"Для удаления данных нужно ввести мастер-ключ.")}>
                       ✕
                     </button>
                   </div>
@@ -623,7 +623,7 @@ export default function MainPage({ setIsAuth })
                         return;
                       }
 
-                      canUseSecret(it, () => setRevealId(recordId));
+                      canUseSecret(it, () => setRevealId(recordId), "Для просмотра данных нужно ввести мастер-ключ.");
                     }}>
                     {revealed ? 
                     (
@@ -634,11 +634,11 @@ export default function MainPage({ setIsAuth })
                     )}
                     </button>
 
-                    <button className="btn" onClick={() => canUseSecret(it, () => copy(it.login))}>
+                    <button className="btn" onClick={() => canUseSecret(it, () => copy(it.login), "Для просмотра данных нужно ввести мастер-ключ.")}>
                       Копировать логин
                     </button>
 
-                    <button className="btn" onClick={() => canUseSecret(it, () => copy(it.password))}>
+                    <button className="btn" onClick={() => canUseSecret(it, () => copy(it.password), "Для просмотра данных нужно ввести мастер-ключ.")}>
                       Копировать пароль
                     </button>
                   </div>

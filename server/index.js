@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const { Pool } = require("pg");
 const { encrypt, decrypt } = require("./encryption");
@@ -171,7 +172,16 @@ app.post("/api/authuser", async (req, res) => {
     if (!isPasswordCorrect) {
       return res.status(404).json({ message: "Ошибка авторизации" });
     }
-
+    const token = jwt.sign(
+    {
+      id: user.id,
+      email: user.login,
+    },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "30d",
+    }
+  );
     return res.status(200).json({
       message: "Авторизация успешна",
       user: {
